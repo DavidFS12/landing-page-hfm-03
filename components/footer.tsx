@@ -1,0 +1,121 @@
+import { Building2, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+
+export function Footer() {
+  return (
+    <footer className="bg-[#0142A0] pt-16 pb-8 text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-12">
+          {/* Company Info */}
+          <div>
+            <div className="mb-6 flex items-center gap-2">
+              <Building2 className="h-8 w-8 text-[#FFEA00]" />
+              <span className="font-bold text-2xl">Constructora AQP</span>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Especialistas en construcción de edificios y departamentos premium en Arequipa, con más de 15 años de experiencia y proyectos emblemáticos.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="mb-4 font-semibold text-lg">Enlaces Rápidos</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#servicios" className="text-white/80 hover:text-[#FFEA00] transition-colors">
+                  Servicios
+                </a>
+              </li>
+              <li>
+                <a href="#proyectos" className="text-white/80 hover:text-[#FFEA00] transition-colors">
+                  Proyectos
+                </a>
+              </li>
+              <li>
+                <a href="#ubicacion" className="text-white/80 hover:text-[#FFEA00] transition-colors">
+                  Ubicación
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/80 hover:text-[#FFEA00] transition-colors">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="mb-4 font-semibold text-lg">Contacto</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-[#FFEA00]" />
+                <span className="text-white/80">Av. Ejército 1234, Cayma, Arequipa</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 flex-shrink-0 text-[#FFEA00]" />
+                <span className="text-white/80">+51 999 999 999</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 flex-shrink-0 text-[#FFEA00]" />
+                <span className="text-white/80">info@constructora.pe</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h3 className="mb-4 font-semibold text-lg">Síguenos</h3>
+            <div className="flex gap-3">
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] rounded-full transition-all hover:scale-110"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] rounded-full transition-all hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] rounded-full transition-all hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
+            <div className="mt-6">
+              <h4 className="mb-3 font-medium">Horario de Atención</h4>
+              <p className="text-sm text-white/80">
+                Lunes a Viernes: 9:00 AM - 6:00 PM<br />
+                Sábados: 9:00 AM - 1:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-white/20 pt-8 border-t text-center text-sm text-white/70">
+          <p>&copy; {new Date().getFullYear()} Constructora AQP. Todos los derechos reservados.</p>
+          <div className="mt-2 flex flex-wrap justify-center gap-4">
+            <a href="#" className="hover:text-[#FFEA00] transition-colors">
+              Política de Privacidad
+            </a>
+            <span>•</span>
+            <a href="#" className="hover:text-[#FFEA00] transition-colors">
+              Términos y Condiciones
+            </a>
+            <span>•</span>
+            <a href="#" className="hover:text-[#FFEA00] transition-colors">
+              Libro de Reclamaciones
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

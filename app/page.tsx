@@ -1,14 +1,14 @@
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { Portfolio } from "@/components/Portfolio";
-import { Location } from "@/components/Location";
-import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { Services } from "@/components/services";
+import { Portfolio } from "@/components/portafolio";
+import { Location } from "@/components/location";
+import { Footer } from "@/components/footer";
+import { WhatsAppButton } from "@/components/whatsappButton";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="bg-[#32a852]">
       <Navbar />
       <Hero />
       <Services />
