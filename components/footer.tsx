@@ -1,8 +1,8 @@
-import { Building2, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Building2, Facebook, Globe, Instagram, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0142A0] pt-16 pb-8 text-white">
+    <footer className="bg-[#0142A0] pt-16 pb-8 text-white" id="footer">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-12">
           {/* Company Info */}
@@ -21,6 +21,11 @@ export function Footer() {
             <h3 className="mb-4 font-semibold text-lg">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
+                <a href="#" className="text-white/80 hover:text-[#FFEA00] transition-colors">
+                  Inicio
+                </a>
+              </li>
+              <li>
                 <a href="#servicios" className="text-white/80 hover:text-[#FFEA00] transition-colors">
                   Servicios
                 </a>
@@ -31,13 +36,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#ubicacion" className="text-white/80 hover:text-[#FFEA00] transition-colors">
-                  Ubicación
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/80 hover:text-[#FFEA00] transition-colors">
-                  Blog
+                <a href="#nosotros" className="text-white/80 hover:text-[#FFEA00] transition-colors">
+                  Nosotros
                 </a>
               </li>
             </ul>
@@ -47,17 +47,17 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-semibold text-lg">Contacto</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-[#FFEA00]" />
-                <span className="text-white/80">Av. Ejército 1234, Cayma, Arequipa</span>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 shrink-0 text-[#FFEA00]" />
+                <span className="text-white/80">info@constructora.pe</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 flex-shrink-0 text-[#FFEA00]" />
+                <Phone className="h-5 w-5 shrink-0 text-[#FFEA00]" />
                 <span className="text-white/80">+51 999 999 999</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 flex-shrink-0 text-[#FFEA00]" />
-                <span className="text-white/80">info@constructora.pe</span>
+              <li className="flex items-start gap-3">
+                <Facebook className="mt-1 h-5 w-5 shrink-0 text-[#FFEA00]" />
+                <span className="text-white/80">Av. Ejército 1234, Cayma, Arequipa</span>
               </li>
             </ul>
           </div>
@@ -68,32 +68,25 @@ export function Footer() {
             <div className="flex gap-3">
               <a
                 href="#"
-                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] rounded-full transition-all hover:scale-110"
+                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] hover:text-brand rounded-full transition-all hover:scale-110"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] rounded-full transition-all hover:scale-110"
+                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] hover:text-brand rounded-full transition-all hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] rounded-full transition-all hover:scale-110"
-                aria-label="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center bg-white/10 hover:bg-[#FFEA00] hover:text-brand rounded-full transition-all hover:scale-110"
+                aria-label="Globe"
               >
-                <Linkedin className="h-5 w-5" />
+                <Globe className="h-5 w-5" />
               </a>
-            </div>
-            <div className="mt-6">
-              <h4 className="mb-3 font-medium">Horario de Atención</h4>
-              <p className="text-sm text-white/80">
-                Lunes a Viernes: 9:00 AM - 6:00 PM<br />
-                Sábados: 9:00 AM - 1:00 PM
-              </p>
             </div>
           </div>
         </div>

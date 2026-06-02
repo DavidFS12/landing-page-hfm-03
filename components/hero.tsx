@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import hero from "@/public/hero-building.jpg"
 import Image from "next/image";
 
 export function Hero() {
@@ -14,7 +15,7 @@ export function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+          src={hero}
           alt="Edificio moderno"
           fill
           className="h-full w-full object-cover"
@@ -43,7 +44,7 @@ export function Hero() {
               onClick={handleWhatsAppClick}
               className="inline-flex items-center gap-3 bg-[#FFEA00] px-8 py-4 rounded-full font-semibold text-[#0142A0] text-lg shadow-2xl transition-all hover:shadow-[#FFEA00]/50"
             >
-              <MessageCircle className="h-6 w-6" />
+              <Phone className="h-6 w-6" />
               Cotiza por WhatsApp
             </motion.button>
           </motion.div>

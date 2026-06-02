@@ -21,7 +21,7 @@ export function Navbar() {
     { label: "Inicio", href: "#" },
     { label: "Servicios", href: "#servicios" },
     { label: "Proyectos", href: "#proyectos" },
-    { label: "Ubicación", href: "#ubicacion" }
+    { label: "Nosotros", href: "#nosotros" }
   ];
 
   return (
@@ -61,7 +61,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#ubicacion"
+              href="#footer"
               className="bg-[#FFEA00] hover:bg-[#FFEA00]/90 px-6 py-2 rounded-full font-semibold text-[#0142A0] transition-all hover:scale-105"
             >
               Contacto

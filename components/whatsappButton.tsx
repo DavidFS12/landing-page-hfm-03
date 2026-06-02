@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export function WhatsAppButton() {
   const handleClick = () => {
@@ -19,7 +19,7 @@ export function WhatsAppButton() {
       className="group fixed right-6 bottom-6 z-50 flex h-16 w-16 items-center justify-center bg-[#25D366] hover:bg-[#128C7E] rounded-full shadow-2xl transition-all"
       aria-label="Contactar por WhatsApp"
     >
-      <MessageCircle className="h-8 w-8 text-white" />
+      <Phone className="h-8 w-8 text-white" />
 
       {/* Pulse Animation */}
       <span className="absolute inset-0 -z-10 animate-ping bg-[#25D366] opacity-75 rounded-full" />

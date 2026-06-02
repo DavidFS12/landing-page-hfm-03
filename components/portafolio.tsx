@@ -3,16 +3,22 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
 import Slider from "react-slick";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Ruler, MapPin } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import p1 from "@/public/project-1.jpg";
+import p2 from "@/public/project-2.jpg";
+import p3 from "@/public/project-3.jpg";
+import p4 from "@/public/project-4.jpg";
+import p5 from "@/public/project-5.jpg";
+import p6 from "@/public/project-6.jpg";
 
 interface Project {
   id: number;
   name: string;
   location: string;
-  image: string;
+  area: string;
   images: string[];
   description: string;
 }
@@ -22,48 +28,32 @@ const projects: Project[] = [
     id: 1,
     name: "Edificio Misti View",
     location: "Cayma, Arequipa",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2080&auto=format&fit=crop"
-    ],
+    area: "120 m2",
+    images: [p1,p2,p3],
     description: "Edificio de 8 pisos con vista panorámica al volcán Misti. Departamentos de 2 y 3 dormitorios con acabados premium."
   },
   {
     id: 2,
     name: "Residencial Yanahuara",
     location: "Yanahuara, Arequipa",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"
-    ],
+    area: "140 m2",
+    images: [p4,p5,p6],
     description: "Complejo residencial exclusivo en el corazón de Yanahuara con áreas verdes y amenidades de lujo."
   },
   {
     id: 3,
     name: "Torre Sachaca",
     location: "Sachaca, Arequipa",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2074&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-    ],
+    area: "200 m2",
+    images: [p3,p6,p1],
     description: "Moderna torre de 12 niveles con diseño arquitectónico vanguardista y espacios inteligentes."
   },
   {
     id: 4,
     name: "Condominio El Vallecito",
     location: "Vallecito, Arequipa",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
-    ],
+    area: "98 m2",
+    images: [p2,p6,p4],
     description: "Desarrollo residencial con amplios departamentos y diseño contemporáneo en zona estratégica."
   }
 ];
@@ -87,7 +77,7 @@ export function Portfolio() {
   };
 
   return (
-    <section className="bg-gray-50 py-20 lg:py-28" id="proyectos">
+    <section className="py-24 lg:py-32 bg-background" id="proyectos">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -116,7 +106,7 @@ export function Portfolio() {
               <div key={project.id} className="relative">
                 <div className="relative h-[400px] sm:h-[500px] lg:h-[600px]">
                   <Image
-                    src={project.image}
+                    src={project.images[0]}
                     alt={project.name}
                     fill
                     className="h-full w-full object-cover"
@@ -147,7 +137,7 @@ export function Portfolio() {
               className="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
             >
               <Image
-                src={project.image}
+                src={project.images[0]}
                 alt={project.name}
                 fill
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -164,10 +154,66 @@ export function Portfolio() {
 
       {/* Modal */}
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <div
+          className="fixed inset-0 z-80 bg-brand/80 backdrop-blur-sm animate-fade-in flex items-center justify-center p-4 sm:p-8"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="bg-background rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative">
+              <Image
+                src={selectedProject.images[0]}
+                alt={selectedProject.name}
+                className="w-full aspect-video object-cover rounded-t-3xl"
+              />
+              <button
+                aria-label="Cerrar"
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 text-foreground grid place-items-center hover:bg-yellow"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 sm:p-10">
+              <div className="flex flex-wrap items-center gap-4 text-sm">
+                <span className="inline-flex items-center gap-1.5 text-brand font-semibold">
+                  <MapPin className="w-4 h-4" /> {selectedProject.location}, Arequipa
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                  <Ruler className="w-4 h-4" /> {selectedProject.area}
+                </span>
+              </div>
+              <h3 className="mt-4 text-3xl lg:text-4xl font-bold text-foreground">
+                {selectedProject.name}
+              </h3>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                {selectedProject.description}
+              </p>
+
+              <div className="mt-8 grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {selectedProject.images.map((g, i) => (
+                  <Image
+                    key={i}
+                    src={g}
+                    alt={`${selectedProject.name} ${i + 1}`}
+                    className="w-full aspect-square object-cover rounded-xl"
+                  />
+                ))}
+              </div>
+
+              <a
+                href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20el%20proyecto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 bg-yellow text-accent-foreground font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform"
+              >
+                Solicitar información
+              </a>
+            </div>
+          </div>
+        </div>
       )}
     </section>
   );
@@ -194,56 +240,5 @@ function CustomNextArrow(props: any) {
     >
       <ChevronRight className="h-6 w-6 text-[#0142A0]" />
     </button>
-  );
-}
-
-function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
-    >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-        className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto bg-white rounded-2xl shadow-2xl"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center bg-white hover:bg-gray-100 rounded-full shadow-lg transition-all"
-        >
-          <X className="h-5 w-5 text-[#0142A0]" />
-        </button>
-
-        <div className="p-6 sm:p-8 lg:p-12">
-          <h3 className="mb-2 font-bold text-3xl text-[#0142A0] sm:text-4xl">
-            {project.name}
-          </h3>
-          <p className="mb-6 text-gray-600 text-lg">{project.location}</p>
-          <p className="mb-8 text-gray-700 leading-relaxed">{project.description}</p>
-
-          <div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
-            {project.images.map((image, index) => (
-              <div
-                key={index}
-                className="aspect-video overflow-hidden rounded-lg"
-              >
-                <Image
-                  src={image}
-                  alt={`${project.name} - Imagen ${index + 1}`}
-                  fill
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
   );
 }

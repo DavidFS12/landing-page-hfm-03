@@ -68,10 +68,10 @@ export function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-gray-50 hover:bg-white p-8 border border-gray-200 rounded-2xl transition-all hover:shadow-xl group"
+              className="bg-gray-50 hover:bg-white p-8 border shadow-xl border-gray-300 rounded-2xl transition-all hover:shadow-2xl group"
             >
               <div className="mb-4 flex h-14 w-14 items-center justify-center bg-[#0142A0] rounded-xl transition-all group-hover:scale-110">
-                <service.icon className="h-7 w-7 text-white" />
+                <service.icon className="h-7 w-7 text-yellow" />
               </div>
               <h3 className="mb-3 font-semibold text-[#0142A0] text-xl">
                 {service.title}
