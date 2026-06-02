@@ -96,7 +96,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#ubicacion"
+              href="#footer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="mx-4 mt-2 block bg-[#FFEA00] px-4 py-3 rounded-lg text-center font-semibold text-[#0142A0]"
             >
