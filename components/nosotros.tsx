@@ -1,6 +1,7 @@
 import { Reveal } from "./reveal";
 import Image from "next/image";
 import hero from "@/public/hero-building.jpg"
+import { HandCoins, Sparkle } from "lucide-react";
 
 const timeline = [
   { year: "1998", title: "Fundación en Cayma", desc: "Nace la I.E.P. Niño Magistral con la primera promoción de inicial." },
@@ -8,6 +9,15 @@ const timeline = [
   { year: "2012", title: "Segunda sede", desc: "Crecemos para atender a más familias caymeñas." },
   { year: "2018", title: "Laboratorios de cómputo", desc: "Implementación de aulas tecnológicas en todos los niveles." },
   { year: "2024", title: "Tercera sede & Robótica", desc: "Ampliamos infraestructura y lanzamos talleres de robótica." },
+];
+
+const valors = [
+  { id: 1, valor: "valor" },
+  { id: 2, valor: "Valores" },
+  { id: 3, valor: "Valorvalores" },
+  { id: 4, valor: "Valoresvalor" },
+  { id: 5, valor: "Valoalor" },
+  { id: 6, valor: "Valvalors" },
 ];
 
 export function Nosotros() {
@@ -33,7 +43,7 @@ export function Nosotros() {
             </div>
           </Reveal>
         </div>
-        <div className="container-apple grid gap-10 md:grid-cols-2 relative z-10">
+        <div className="container-apple grid gap-10 md:grid-cols-3 relative z-10">
           <Reveal>
             <div className="rounded-3xl bg-brand border-2 border-char-1 shadow-2xl p-8">
               <h2 className="text-4xl font-semibold text-yellow">Misión</h2>
@@ -52,32 +62,21 @@ export function Nosotros() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="container-apple">
-          <Reveal>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-balance text-brand">Nuestra trayectoria.</h2>
-          </Reveal>
-          <div className="relative mt-16 max-w-3xl mx-auto">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-yellow md:-translate-x-1/2" aria-hidden />
-            <ul className="space-y-12">
-              {timeline.map((t, i) => (
-                <Reveal key={t.year} delay={i * 0.05}>
-                  <li className={`relative md:grid md:grid-cols-2 md:gap-10 ${i % 2 ? "md:[direction:rtl]" : ""}`}>
-                    <div className="md:[direction:ltr] pl-12 md:pl-0 md:pr-10 md:text-right">
-                      <span className="absolute left-4 md:left-1/2 -translate-y-1 md:-translate-x-1/2 grid h-3 w-3 rounded-full bg-brand ring-4 ring-yellow" aria-hidden />
-                      <div className="text-brand/80 font-semibold tracking-tight text-lg">{t.year}</div>
-                      <h3 className="text-brand mt-1 text-xl font-semibold">{t.title}</h3>
-                      <p className="mt-2 text-muted-foreground">{t.desc}</p>
+          <Reveal delay={0.2}>
+            <div className="rounded-3xl bg-brand border-2 border-char-1 shadow-2xl p-8">
+              <div className="flex gap-3">
+                <h2 className="font-bold text-4xl text-yellow">Valores</h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-3 mt-3">
+                  {valors.map((v, i) => (
+                    <div key={i} className="flex gap-3">
+                      <Sparkle className="w-5 h-5 text-yellow" />
+                      <h2 className="text-white/80">{v.valor}</h2>
                     </div>
-                    <div />
-                  </li>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
+                  ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

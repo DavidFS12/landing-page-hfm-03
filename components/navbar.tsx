@@ -2,7 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Building2, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import logo_blue from "@/public/logo-blue.jpg";
+import logo_yellow from "@/public/logo-white.jpg";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,17 +35,18 @@ export function Navbar() {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? "bg-white shadow-lg"
-          : "bg-white/10 backdrop-blur-sm"
+          : "bg-white/20 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <Building2 className={`h-8 w-8 ${isScrolled ? "text-[#0142A0]" : "text-white"}`} />
-            <span className={`font-bold text-xl ${isScrolled ? "text-[#0142A0]" : "text-white"}`}>
-              Constructora AQP
-            </span>
+            <Image
+              src={isScrolled ? logo_blue : logo_yellow}
+              alt="Logo"
+              height={50}
+            />
           </a>
 
           {/* Desktop Menu */}

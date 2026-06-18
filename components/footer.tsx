@@ -1,6 +1,23 @@
-import { Building2, Facebook, Globe, Instagram, Mail, Phone } from "lucide-react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Facebook, Globe, Instagram, Mail, Phone } from "lucide-react";
+import Image from "next/image";
+import logo_blue from "@/public/logo-blue.jpg";
+import logo_yellow from "@/public/logo-white.jpg";
 
 export function Footer() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 50);
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+  
   return (
     <footer className="bg-[#0142A0] pt-16 pb-8 text-white" id="footer">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,8 +25,13 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="mb-6 flex items-center gap-2">
-              <Building2 className="h-8 w-8 text-[#FFEA00]" />
-              <span className="font-bold text-2xl">Constructora AQP</span>
+              <a href="#" className="flex items-center gap-2">
+                <Image
+                  src={logo_yellow}
+                  alt="Logo"
+                  height={50}
+                />
+              </a>
             </div>
             <p className="text-white/80 leading-relaxed">
               Especialistas en construcción de edificios y departamentos premium en Arequipa, con más de 15 años de experiencia y proyectos emblemáticos.

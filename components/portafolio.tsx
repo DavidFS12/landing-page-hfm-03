@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import { X, ChevronLeft, ChevronRight, Ruler, MapPin } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import p1 from "@/public/project-1.jpg";
 import p2 from "@/public/project-2.jpg";
 import p3 from "@/public/project-3.jpg";
@@ -19,7 +19,7 @@ interface Project {
   name: string;
   location: string;
   area: string;
-  images: string[];
+  images: (string | StaticImageData)[];
   description: string;
 }
 
